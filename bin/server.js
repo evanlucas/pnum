@@ -13,7 +13,6 @@ var snpm = require('smart-private-npm')
   , nopt = require('nopt')
   , knownOpts = { private: String
                 , loglevel: ['verbose', 'info', 'quiet']
-                , 'private-vhost': String
                 , public: String
                 , config: path
                 , exclude: [String, Array]
@@ -27,6 +26,7 @@ var snpm = require('smart-private-npm')
                 , h: ['--help']
                 , H: ['--help']
                 , v: ['--version']
+                , l: ['--loglevel']
                 , verbose: ['--loglevel', 'verbose']
                 , q: ['--loglevel', 'quiet']
                 }
@@ -140,21 +140,15 @@ function help() {
   console.log()
   console.log(' Usage: pnum [options]')
   console.log()
-  console.log(' Where [options] can be')
-  console.log('   --private <url>           set the private registry url')
-  console.log('   --public <url>            set the public registry url')
-  console.log('   --config <path>           set the path to your config file')
-  console.log('   --exclude <pkg>           exclude _pkg_ from being private')
-  console.log('   --help                    show help and usage')
-  console.log('   --version                 show version information')
+  console.log(' Options:')
   console.log()
-  console.log(' The following aliases are also available')
-  console.log('   --priv    =>   --private')
-  console.log('   --pub     =>   --public')
-  console.log('   -c        =>   --config')
-  console.log('   -e        =>   --exclude')
-  console.log('   -h        =>   --help')
-  console.log('   -v        =>   --version')
+  console.log('   --priv, --private <url>      set the private registry url')
+  console.log('   --pub, --public <url>        set the public registry url')
+  console.log('   -c, --config <path>          set the path to your config file')
+  console.log('   -e, --exclude <pkg>          exclude _pkg_ from being private')
+  console.log('   -h, --help                   show help and usage')
+  console.log('   -v, --version                show version information')
+  console.log('   -l, --loglevel <level>       set the log level')
   console.log()
   process.exit(1)
 }

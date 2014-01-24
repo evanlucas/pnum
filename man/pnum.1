@@ -31,6 +31,8 @@ This flag is accepted multiple times, so you can exclude multiple packages.
 show help and usage
 .IP "-v, --version"
 show version information
+.IP "-l, --loglevel <level>"
+set the log level
 
 .SH "CONFIGURATION"
 
@@ -72,6 +74,15 @@ Defaults to \fI8044\fP
 An object containing \fIport\fP, \fIroot\fP, \fIkey\fP, and \fIcert\fP.
 If you don't want to use HTTPS, then set it to null.
 .RE
+
+.SH "LOG LEVELS"
+.RS 0
+.IP "\(bu" 4
+.B quiet
+.IP "\(bu" 4
+.B "info" (default)
+.IP "\(bu" 4
+.B "verbose"
 
 .SH "EXAMPLE"
 
