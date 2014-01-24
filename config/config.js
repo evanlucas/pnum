@@ -1,9 +1,9 @@
 var path = require('path')
 
 /**
- * Basic filters
+ * Default excludes
  */
-exports.defaultFilter = [
+exports.exclude = [
     '_design/ghost'
   , '_design/scratch'
   , '_design/ui'
@@ -23,7 +23,7 @@ exports.private = 'http://localhost:5984'
  * Filtering function
  */
 exports.filter = function(f) {
-  return (!(~exports.defaultFilter.indexOf(f)))
+  return (!(~exports.exclude.indexOf(f)))
 }
 
 /**
