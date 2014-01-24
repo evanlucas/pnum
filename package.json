@@ -1,0 +1,34 @@
+{
+  "name": "pnum",
+  "version": "0.0.0",
+  "description": "A wrapper for smart-private-npm that loads all of your private modules",
+  "main": "./bin/server.js",
+  "bin": {
+    "pnum": "./bin/server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evanlucas/pnum"
+  },
+  "dependencies": {
+    "npmlog": "0.0.6",
+    "smart-private-npm": "nodejitsu/smart-private-npm",
+    "nopt": "~2.1.2",
+    "couchpkgs": "0.0.1"
+  },
+  "keywords": [
+    "npm",
+    "registry",
+    "private"
+  ],
+  "author": "Evan Lucas <evanlucas@me.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evanlucas/pnum/issues"
+  },
+  "homepage": "https://github.com/evanlucas/pnum"
+}
