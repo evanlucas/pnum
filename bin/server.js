@@ -134,7 +134,7 @@ function help() {
   console.log(' Usage: pnum [options]')
   console.log()
   console.log(' Where [options] can be')
-  console.log('   --private <url>           set your private registry')
+  console.log('   --private <url>           set the private registry url')
   console.log('   --public <url>            set the public registry url')
   console.log('   --config <path>           set the path to your config file')
   console.log('   --exclude <pkg>           exclude _pkg_ from being private')
