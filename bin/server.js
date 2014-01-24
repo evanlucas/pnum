@@ -58,12 +58,19 @@ config.public = parsed.public ||
                 config.public ||
                 defaultConfig.public
 
-config.http = config.http || 8080
+config.http = config.http || defaultConfig.http
 config.https = config.https || null
 
 config.exclude = parsed.exclude ||
                  config.exclude ||
+                 defaultConfig.exclude ||
                  []
+
+if (!config.filter) {
+  config.filter = function(f) {
+    return (!(~config.exclude.indexOf(f)))
+  }
+}
 
 log.verbose('config', config)
 
