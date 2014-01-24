@@ -7,6 +7,7 @@ exports.defaultFilter = [
     '_design/ghost'
   , '_design/scratch'
   , '_design/ui'
+  , '_design/app'
   , 'error: forbidden'
 ]
 
