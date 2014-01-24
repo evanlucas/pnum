@@ -1,0 +1,62 @@
+.\" Manpage for pnum
+.\" see https://github.com/evanlucas/pnum
+.TH "pnum" "1" "01/23/2014" "0.0.1" "pnum man page"
+.SH "NAME"
+\fBpnum\fR \-\- A wrapper for smart-private-npm
+.SH "SYNOPSIS"
+.B pnum [options]
+.SH "DESCRIPTION"
+.B pnum
+is a wrapper for smart-private-npm that loads all of your private modules first
+
+.SH "OPTIONS"
+
+.IP "--priv, --private <url>"
+set the private registry url
+.IP "--pub, --public <url>"
+set the public registry url
+.IP "-c, --config <path>"
+set the path to your config file.
+
+This option provides more flexibility than simply passing. It can be any file that can be \fBrequire\fRd by \fBnode\fR that exports an object.
+
+.B NOTE:
+Any cli flags passed will override configuration
+
+The accepted configuration options are:
+.RS
+.TP 15
+.B defaultFilter {Array}
+An array of packages to ignore.
+Defaults to:
+.nf
+"_design/ghost"
+"_design/scratch"
+"_design/ui"
+"_design/app"
+"error: forbidden"
+.
+.TP
+.B private {String}
+The url of the private npm registry.  Defaults to \fIhttp://localhost:5984\fP
+.TP
+.B filter {Function}
+A function returning true/false filtering unwanted private packages
+.TP
+.B public {String}
+The url of the public npm registry.  Defaults to \fIhttps://registry.nodejitsu.com\fP
+.TP
+.B http {Number}
+The port on which the HTTP server will run.  Defaults to \fI8044\fP
+.TP
+.B https {Object}
+
+.RE
+.IP "-e, --exclude <pkg>"
+exclude pkg from being private
+.IP "-h, --help"
+show help and usage
+.IP "-v, --version"
+show version information
+
+.SH "CONFIG"
