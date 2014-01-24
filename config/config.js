@@ -28,7 +28,7 @@ exports.filter = function(f) {
 /**
  * Public registry
  */
-exports.public = 'https://registry.npmjs.org'
+exports.public = 'https://registry.nodejitsu.com'
 
 /**
  * HTTP Port
