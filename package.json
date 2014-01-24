@@ -1,6 +1,6 @@
 {
   "name": "pnum",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A wrapper for smart-private-npm that loads all of your private modules",
   "main": "./bin/server.js",
   "bin": {
