@@ -1,6 +1,6 @@
 .\" Manpage for pnum
 .\" see https://github.com/evanlucas/pnum
-.TH "pnum" "1" "01/23/2014" "0.0.1" "pnum man page"
+.TH "pnum" "1" "January 2014" "0.0.1" "pnum man page"
 .SH "NAME"
 \fBpnum\fR \-\- A wrapper for smart-private-npm
 .SH "SYNOPSIS"
@@ -21,42 +21,70 @@ set the path to your config file.
 This option provides more flexibility than simply passing. It can be any file that can be \fBrequire\fRd by \fBnode\fR that exports an object.
 
 .B NOTE:
-Any cli flags passed will override configuration
+Any cli flags passed will override configuration read from the config path
 
-The accepted configuration options are:
-.RS
-.TP 15
-.B defaultFilter {Array}
-An array of packages to ignore.
-Defaults to:
-.nf
-"_design/ghost"
-"_design/scratch"
-"_design/ui"
-"_design/app"
-"error: forbidden"
-.
-.TP
-.B private {String}
-The url of the private npm registry.  Defaults to \fIhttp://localhost:5984\fP
-.TP
-.B filter {Function}
-A function returning true/false filtering unwanted private packages
-.TP
-.B public {String}
-The url of the public npm registry.  Defaults to \fIhttps://registry.nodejitsu.com\fP
-.TP
-.B http {Number}
-The port on which the HTTP server will run.  Defaults to \fI8044\fP
-.TP
-.B https {Object}
-
-.RE
 .IP "-e, --exclude <pkg>"
-exclude pkg from being private
+exclude \fIpkg\fP from being private
+
+This flag is accepted multiple times, so you can exclude multiple packages.
 .IP "-h, --help"
 show help and usage
 .IP "-v, --version"
 show version information
 
-.SH "CONFIG"
+.SH "CONFIGURATION"
+
+.RS 0
+.IP "\(bu" 4
+.B exclude {Array}
+An array of packages to ignore.
+Defaults to:
+.RS 4
+.IP "\(bu" 4
+_design/ghost
+.IP "\(bu" 4
+_design/scratch
+.IP "\(bu" 4
+_design/ui
+.IP "\(bu" 4
+_design/app
+.IP "\(bu" 4
+error: forbidden
+.RE
+.RS 0
+.IP "\(bu" 4
+.B private {String}
+The url of the private npm registry.
+Defaults to \fIhttp://localhost:5984\fP
+.IP "\(bu" 4
+.B filter {Function}
+A function returning true/false filtering unwanted private packages
+.IP "\(bu" 4
+.B public {String}
+The url of the public npm registry.
+Defaults to \fIhttps://registry.nodejitsu.com\fP
+.IP "\(bu" 4
+.B http {Number}
+The port on which the HTTP server will run.
+Defaults to \fI8044\fP
+.IP "\(bu" 4
+.B https {Object}
+An object containing \fIport\fP, \fIroot\fP, \fIkey\fP, and \fIcert\fP.
+If you don't want to use HTTPS, then set it to null.
+.RE
+
+.SH "EXAMPLE"
+
+Load configuration at ./pnum_config.js and override private registry
+
+.P
+.RS 2
+.EX
+pnum -c ./pnum_config.js --priv "http://localhost:5984/registry/_design/scratch/_rewrite"
+.EE
+.RE
+
+To create your own configuration file, you can use \fIhttps://raw.github.com/evanlucas/pnum/master/config/config.js\fP as a template
+
+.SH "BUGS"
+\fIhttps://github.com/evanlucas/pnum\fP
