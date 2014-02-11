@@ -21,7 +21,7 @@
     "npmlog": "0.0.6",
     "smart-private-npm": "nodejitsu/smart-private-npm",
     "nopt": "~2.1.2",
-    "couchpkgs": "0.0.1"
+    "couchpkgs": "~0.1.0"
   },
   "keywords": [
     "npm",
