@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "npmlog": "0.0.6",
-    "smart-private-npm": "nodejitsu/smart-private-npm",
+    "smart-private-npm": "1.2.2",
     "nopt": "~2.1.2",
     "couchpkgs": "~0.1.0"
   },
