@@ -12,6 +12,7 @@ var snpm = require('smart-private-npm')
   , log = require('npmlog')
   , nopt = require('nopt')
   , knownOpts = { private: String
+                , registry: String
                 , loglevel: ['verbose', 'info', 'quiet']
                 , public: String
                 , config: path
@@ -29,6 +30,7 @@ var snpm = require('smart-private-npm')
                 , l: ['--loglevel']
                 , verbose: ['--loglevel', 'verbose']
                 , q: ['--loglevel', 'quiet']
+                , r: ['--registry']
                 }
   , parsed = nopt(knownOpts, shortHand)
 
@@ -58,6 +60,10 @@ config.public = parsed.public ||
                 config.public ||
                 defaultConfig.public
 
+config.registry = parsed.registry ||
+                  parsed.private  ||
+                  config.private
+
 config.http = config.http || defaultConfig.http
 config.https = config.https || null
 
@@ -84,10 +90,12 @@ var opts = {
       blacklist: {},
       //whitelist: {},
       transparent: false
-    }
+    },
+    log: log
   },
   http: config.http,
-  https: config.https
+  https: config.https,
+  log: log
 }
 
 if (config.blacklist) {
@@ -101,7 +109,7 @@ if (config.whitelist) {
 // fetch list of all packages from private registry
 // filtering the design docs
 couch.getPkgs({
-  registry: config.private,
+  registry: config.registry,
   filter: config.filter
 }, function(err, pkgs) {
   if (err) {
@@ -144,6 +152,7 @@ function help() {
   console.log()
   console.log('   --priv, --private <url>      set the private registry url')
   console.log('   --pub, --public <url>        set the public registry url')
+  console.log('   -r, --registry <url>         set the local registry from which we will load pkgs')
   console.log('   -c, --config <path>          set the path to your config file')
   console.log('   -e, --exclude <pkg>          exclude _pkg_ from being private')
   console.log('   -h, --help                   show help and usage')
