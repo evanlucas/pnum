@@ -61,7 +61,7 @@ config.public = parsed.public ||
                 defaultConfig.public
 
 config.registry = parsed.registry ||
-                  parsed.private  ||
+                  config.registry ||
                   config.private
 
 config.http = config.http || defaultConfig.http
