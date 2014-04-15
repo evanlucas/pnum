@@ -1,0 +1,11 @@
+  Usage: pnum [options]
+
+  Options:
+    --priv, --private <url>           set the private registry url
+    --pub, --public <url>             set the public registry url
+    -r, --registry <url>              the url to follow
+    -c, --config <path>               set the path to your config file
+    -e, --exclude <pkg>               exclude _pkg_ from being private
+    -h, --help                        show help and usage
+    -v, --version                     show version
+    -l, --loglevel <level>            set the log level
