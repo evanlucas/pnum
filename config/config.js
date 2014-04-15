@@ -31,6 +31,8 @@ exports.filter = function(f) {
  */
 exports.public = 'https://registry.nodejitsu.com'
 
+exports.registry = exports.private
+
 /**
  * HTTP Port
  */
